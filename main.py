@@ -11,6 +11,7 @@ while True:
         os.system('raspistill -o cam.jpg')
 
         img = cv2.imread("cam.jpg")
+        cv2.imshow("img", img)
         img_gray = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
         noise_removal = cv2.bilateralFilter(img_gray,9,75,75)
         equal_histogram = cv2.equalizeHist(noise_removal)
@@ -51,7 +52,7 @@ while True:
             y.sort()
             
         cropped = image[y[1]+bias_pixel:y[2]-bias_pixel, x[1]+bias_pixel:x[2]-bias_pixel]
-        cv2.imshow("img", img)
+        
         cv2.imshow("cropped", cropped)
         cv2.imwrite('crop.jpg', cropped)
         x = pytesseract.image_to_string(Image.open('crop.jpg'), config='-l tha --oem 3 --psm 11')
