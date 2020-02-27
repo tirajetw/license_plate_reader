@@ -60,7 +60,7 @@ ret,thresh_image = cv2.threshold(sub_morp_image,0,255,cv2.THRESH_OTSU)
 
 # Applying Canny Edge detection
 canny_image = cv2.Canny(thresh_image,250,255)
-cv2.namedWindow("Image after applying Canny",cv2.WINDOW_NORMAL)
+# cv2.namedWindow("Image after applying Canny",cv2.WINDOW_NORMAL)
 # Creating a Named window to display image
 # cv2.imshow("Image after applying Canny",canny_image)
 # Display Image
