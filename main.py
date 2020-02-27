@@ -51,6 +51,7 @@ while True:
             y.sort()
             
         cropped = image[y[1]+bias_pixel:y[2]-bias_pixel, x[1]+bias_pixel:x[2]-bias_pixel]
+        cv2.imshow("img", img)
         cv2.imshow("cropped", cropped)
         cv2.imwrite('crop.jpg', cropped)
         x = pytesseract.image_to_string(Image.open('crop.jpg'), config='-l tha --oem 3 --psm 11')
